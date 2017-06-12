@@ -1,7 +1,11 @@
 .DS_Store
-.javac
-.class
+*.javac
+*.class
 .metadata/
 .recommenders/
 RemoteSystemsTempFiles/
 si1/
+../.classpath/
+../.project/
+../.settings/
+../../../*.class
