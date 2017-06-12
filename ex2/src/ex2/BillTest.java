@@ -37,7 +37,7 @@ public class BillTest {
 	}
 	
 	@Test
-	public void emptyBillFieldsAreEmpty() {
+	public void fieldsAreEmpty() {
 		assertEquals(0, billWithEmptyFields.getCode());
 		assertEquals(0.0, billWithEmptyFields.getValue(), 0.0);
 		assertNull(billWithEmptyFields.getDate());

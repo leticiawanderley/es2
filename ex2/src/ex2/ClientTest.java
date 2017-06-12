@@ -11,6 +11,7 @@ import org.junit.Test;
 public class ClientTest {
 	
 	private Client emptyClient;
+	private Client clientWithEmptyfields;
 	private Client notEmptyClient;
 	private Client setClient;
 	
@@ -23,16 +24,21 @@ public class ClientTest {
 		name = "Fulano";
 		date = new GregorianCalendar(2017, 06, 01).getTime();
 		state = "PB";
-		emptyClient = new Client();
+		clientWithEmptyfields = new Client();
 		setClient = new Client();
 		notEmptyClient = new Client(name, date, state);
 	}
 	
 	@Test
 	public void emptyClientIsEmpty() {
-		assertNull(emptyClient.getName());
-		assertNull(emptyClient.getInclusionDate());
-		assertNull(emptyClient.getState());
+		assertNull(emptyClient);
+	}
+	
+	@Test
+	public void fieldsAreEmpty() {
+		assertNull(clientWithEmptyfields.getName());
+		assertNull(clientWithEmptyfields.getInclusionDate());
+		assertNull(clientWithEmptyfields.getState());
 	}
 
 	@Test
@@ -51,9 +57,9 @@ public class ClientTest {
 	
 	@Test
 	public void constructorEmpty() {
-		assertNotEquals(name, emptyClient.getName());
-		assertNotEquals(date, emptyClient.getInclusionDate());
-		assertNotEquals(state, emptyClient.getState());
+		assertNotEquals(name, clientWithEmptyfields.getName());
+		assertNotEquals(date, clientWithEmptyfields.getInclusionDate());
+		assertNotEquals(state, clientWithEmptyfields.getState());
 	}
 	
 	@Test
