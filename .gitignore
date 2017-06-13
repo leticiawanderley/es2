@@ -5,7 +5,7 @@
 .recommenders/
 RemoteSystemsTempFiles/
 si1/
-.classpath/
-.project/
+.classpath
+.project
 .settings/
 
