@@ -2,6 +2,12 @@ package ex2;
 
 import java.util.Date;
 
+/**
+ * Represents a client bill
+ * 
+ * @author leticiawanderley
+ *
+ */
 public class Bill {
 
 	private int code;
@@ -9,6 +15,18 @@ public class Bill {
 	private Date date;
 	private Client client;
 
+	/**
+	 * Bill constructor
+	 * 
+	 * @param code
+	 * 		bill unique code
+	 * @param value
+	 * 		monetary value of the bill
+	 * @param date
+	 * 		date the bill was installed
+	 * @param client
+	 * 		client to whom the bill belongs
+	 */
 	public Bill(int code, double value, Date date, Client client) {
 		this.code = code;
 		this.value = value;
