@@ -34,7 +34,6 @@ public class BillFilter {
 			} else if (fourthCriteria(bill)) {
 				i.remove();
 			}
-
 		}
 	}
 

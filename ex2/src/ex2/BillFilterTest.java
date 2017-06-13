@@ -17,18 +17,18 @@ public class BillFilterTest {
 	private Client clientSouthSC;
 	private Client clientSouthPR;
 	private Client clientSouthRS;
-	private Client clientNortheast; 
+	private Client clientNortheast;
 	private Date oneMonthAgo;
 	private Date currentDate;
-	
+
 	@Before
 	public void setUp() {
 		currentDate = new Date();
-		Calendar c = Calendar.getInstance(); 
-		c.setTime(currentDate); 
+		Calendar c = Calendar.getInstance();
+		c.setTime(currentDate);
 		c.add(Calendar.MONTH, -1);
 		oneMonthAgo = c.getTime();
-		Calendar c2 = Calendar.getInstance(); 
+		Calendar c2 = Calendar.getInstance();
 		c2.setTime(currentDate);
 		c2.add(Calendar.MONTH, -2);
 		clientNortheast = new Client("Beltrano", currentDate, "AL");
@@ -36,7 +36,7 @@ public class BillFilterTest {
 		clientSouthSC = new Client("Fulano", currentDate, "SC");
 		clientSouthPR = new Client("Chico", currentDate, "PR");
 		clientSouthRS = new Client("Jacob", currentDate, "RS");
-		
+
 		filter = new BillFilter();
 	}
 
@@ -56,7 +56,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertTrue(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void firstCriteriaMaxLimit() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -65,7 +65,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertTrue(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void firstCriteriaMaxPlusLimit() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -83,7 +83,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertTrue(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void secondCriteriaMinLimit() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -92,7 +92,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertTrue(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void secondCriteriaMaxLimit() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -101,7 +101,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertTrue(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void secondCriteriaMaxPlusLimit() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -110,7 +110,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertFalse(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void thirdCriteria() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -119,7 +119,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertTrue(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void thirdCriteriaMaxLimit() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -128,7 +128,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertTrue(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void thirdCriteriaMaxPlusLimit() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -137,7 +137,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertFalse(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void fourthCriteriaSC() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -146,7 +146,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertTrue(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void fourthCriteriaMinLimit() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -155,7 +155,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertTrue(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void fourthCriteriaMinMinusLimit() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -164,7 +164,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertFalse(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void fourthCriteriaPR() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -173,7 +173,7 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertTrue(bills.isEmpty());
 	}
-	
+
 	@Test
 	public void fourthCriteriaRS() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
@@ -182,8 +182,8 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertTrue(bills.isEmpty());
 	}
-	
-	@Test 
+
+	@Test
 	public void notToBeFilteredFirstCriteria() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
 		bills.add(new Bill(5, 2010.0, currentDate, clientNortheast));
@@ -191,8 +191,8 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertFalse(bills.isEmpty());
 	}
-	
-	@Test 
+
+	@Test
 	public void notToBeFilteredSecondCriteria() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
 		bills.add(new Bill(7, 2450.0, currentDate, clientSouthSC));
@@ -200,8 +200,8 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertFalse(bills.isEmpty());
 	}
-	
-	@Test 
+
+	@Test
 	public void notToBeFilteredThirdCriteria() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
 		bills.add(new Bill(6, 2780.0, currentDate, clientSouthSC));
@@ -209,8 +209,8 @@ public class BillFilterTest {
 		filter.filterBills(bills);
 		assertFalse(bills.isEmpty());
 	}
-	
-	@Test 
+
+	@Test
 	public void notToBeFilteredFourthCriteria() {
 		ArrayList<Bill> bills = new ArrayList<Bill>();
 		bills.add(new Bill(6, 5000.0, currentDate, clientInclusionDate2Months));

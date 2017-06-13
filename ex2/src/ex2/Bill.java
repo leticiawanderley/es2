@@ -19,13 +19,13 @@ public class Bill {
 	 * Bill constructor
 	 * 
 	 * @param code
-	 * 		bill unique code
+	 *            bill unique code
 	 * @param value
-	 * 		monetary value of the bill
+	 *            monetary value of the bill
 	 * @param date
-	 * 		date the bill was installed
+	 *            date the bill was installed
 	 * @param client
-	 * 		client to whom the bill belongs
+	 *            client to whom the bill belongs
 	 */
 	public Bill(int code, double value, Date date, Client client) {
 		this.code = code;
