@@ -31,6 +31,7 @@ public class IniciarSessaoTest {
 		atm.insereCartao(cartaoOK);
 		atm.inserePin(pinOk);
 		assertTrue(atm.isUsuarioLogado());
+		assertTrue(atm.isSessaoAtiva());
 	}
 
 	@Test
@@ -42,6 +43,7 @@ public class IniciarSessaoTest {
 			assertEquals("A fita do cartão está danificada.", e.getMessage());
 		}
 		assertFalse(atm.isUsuarioLogado());
+		assertFalse(atm.isSessaoAtiva());
 	}
 
 	@Test
@@ -53,6 +55,7 @@ public class IniciarSessaoTest {
 			assertEquals("O Cartão não foi inserido corretamente.", e.getMessage());
 		}
 		assertFalse(atm.isUsuarioLogado());
+		assertFalse(atm.isSessaoAtiva());
 	}
 
 	@Test
@@ -61,6 +64,7 @@ public class IniciarSessaoTest {
 		atm.insereCartao(cartaoOK);
 		atm.cancelaOperacao();
 		assertFalse(atm.isUsuarioLogado());
+		assertFalse(atm.isSessaoAtiva());
 		assertTrue(atm.podeEjetarCartao());
 	}
 
@@ -73,6 +77,7 @@ public class IniciarSessaoTest {
 		assertTrue(atm.podeEjetarCartao());
 		atm.inserePin(pinOk);
 		assertTrue(atm.isUsuarioLogado());
+		assertFalse(atm.isSessaoAtiva());
 	}
 
 	@Test
@@ -85,5 +90,6 @@ public class IniciarSessaoTest {
 			assertFalse(atm.isUsuarioLogado());
 		}
 		assertFalse(atm.podeEjetarCartao());
+		assertFalse(atm.isSessaoAtiva());
 	}
 }

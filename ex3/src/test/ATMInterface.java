@@ -42,4 +42,8 @@ public class ATMInterface {
 		return false;
 	}
 
+	public boolean isSessaoAtiva() {
+		return false;
+	}
+
 }
