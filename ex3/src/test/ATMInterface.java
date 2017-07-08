@@ -55,6 +55,25 @@ public class ATMInterface {
 	}
 
 	/**
+	 * Seleciona transação a ser executada
+	 */
+	public void selecionaTransacao(String transacao) {
+	}
+
+	/**
+	 * Retorna status da interface do usuário
+	 */
+	public String getCustomerConsoleStatus() {
+		return null;
+	}
+
+	/**
+	 * Recebe detalhes do usuário e sua conta e os insere no sistema
+	 */
+	public void insereDetalhes(String detalhes) {
+	}
+
+	/**
 	 * Retorna true se houver um usuário logado na ATM e false caso contrário
 	 */
 	public boolean isUsuarioLogado() {
@@ -77,20 +96,75 @@ public class ATMInterface {
 		return false;
 	}
 
-	public void selecionaTransacao(String transacao) {
+	/**
+	 * Retorna true se o recibo pode ser impresso pela ATM e false caso
+	 * contrário 
+	 * Simula impressão de recibo
+	 */
+	public boolean isReciboImpresso() {
+		return false;
+	}
+
+	/**
+	 * Seleciona tipo de conta participante da transação
+	 */
+	public void selecionaTipoDeConta(String tipoConta) {
+	}
+
+	/**
+	 * Retorna true se a ATM tem notas suficientes para atender um transaçao de
+	 * saque e false caso contrário
+	 */
+	public boolean dinheiroSuficiente() {
+		return false;
+	}
+
+	/**
+	 * Recebe quantidade de dinheiro envolvida na transação atual
+	 */
+	public void insereQuantidade(float saque) {
 	}
 	
-	public String getCustomerConsoleStatus() {
-		return null;
+	/**
+	 * Simula o recebimento de um envelope no depósito
+	 */
+	public void insereEnvelope() {
+	}
+	
+	/**
+	 * Recebe conta para qual a transferência será realizada
+	 */
+	public void insereContaTransferencia(String tipoConta) {
+	}
+	
+	/**
+	 * Retorna saldo da conta, passada como parâmetro, do usuário atual
+	 */
+	public float getSaldoUsuario(String tipoDeConta) {
+		return 0;
 	}
 
-	public void insereDetalhes(String detalhes) {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * Retorna true se o Banco autorizou a transação de saque e false caso
+	 * contrário
+	 */
+	public boolean podeSacar() {
+		return false;
 	}
 
-	public boolean isReciboImpresso() {
-		// TODO Auto-generated method stub
+	/**
+	 * Retorna true se o Banco autorizou a transação de depósito e false caso
+	 * contrário
+	 */
+	public boolean podeDepositar() {
+		return false;
+	}
+
+	/**
+	 * Retorna true se o Banco autorizou a transação de transferência e false
+	 * caso contrário
+	 */
+	public boolean podeTransferir() {
 		return false;
 	}
 }

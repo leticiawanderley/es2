@@ -10,6 +10,8 @@ import banking.Money;
 
 public class IniciarSessaoTest {
 
+	private static final String MENU_MODE = "MENU_MODE";
+	private static final String PIN_MODE = "PIN_MODE";
 	ATMInterface atm;
 	Card cartaoFitaDanificada = new Card(333);
 	Card cartaoOK = new Card(123);
@@ -21,6 +23,7 @@ public class IniciarSessaoTest {
 		// Essa classe representa a API que captura as capacidades do sistema
 		// ATM sem a utilização da GUI
 		atm = new ATMInterface();
+		
 		atm.setInitialCash(new Money(200));
 		atm.switchOn();
 	}
@@ -29,9 +32,9 @@ public class IniciarSessaoTest {
 	public void testLogin() {
 		assertFalse(atm.isUsuarioLogado());
 		atm.insereCartao(cartaoOK);
-		assertEquals("PIN_MODE", atm.getCustomerConsoleStatus());
+		assertEquals(PIN_MODE, atm.getCustomerConsoleStatus());
 		atm.inserePin(pinOk);
-		assertEquals("MENU_MODE", atm.getCustomerConsoleStatus());
+		assertEquals(MENU_MODE, atm.getCustomerConsoleStatus());
 		assertTrue(atm.isUsuarioLogado());
 		assertTrue(atm.isSessaoAtiva());
 	}
@@ -64,7 +67,7 @@ public class IniciarSessaoTest {
 	public void testLoginCancelado() {
 		assertFalse(atm.isUsuarioLogado());
 		atm.insereCartao(cartaoOK);
-		assertEquals("PIN_MODE", atm.getCustomerConsoleStatus());
+		assertEquals(PIN_MODE, atm.getCustomerConsoleStatus());
 		atm.cancelaOperacao();
 		assertFalse(atm.isUsuarioLogado());
 		assertFalse(atm.isSessaoAtiva());
@@ -75,11 +78,11 @@ public class IniciarSessaoTest {
 	public void testPinIncorreto() {
 		assertFalse(atm.isUsuarioLogado());
 		atm.insereCartao(cartaoOK);
-		assertEquals("PIN_MODE", atm.getCustomerConsoleStatus());
+		assertEquals(PIN_MODE, atm.getCustomerConsoleStatus());
 		atm.inserePin(pinErrado);
 		assertFalse(atm.isUsuarioLogado());
 		assertTrue(atm.podeEjetarCartao());
-		assertEquals("PIN_MODE", atm.getCustomerConsoleStatus());
+		assertEquals(PIN_MODE, atm.getCustomerConsoleStatus());
 		atm.inserePin(pinOk);
 		assertTrue(atm.isUsuarioLogado());
 		assertFalse(atm.isSessaoAtiva());
