@@ -24,7 +24,7 @@ public class DesligarATMTest {
 		atm.setInitialCash(new Money(200));
 		atm.switchOn();
 		assertNotNull(atm.getNetworkToBank());
-		assertFalse(atm.isBusy());
+		assertFalse(atm.isSessaoAtiva());
 		atm.switchOff();
 		assertNull(atm.getNetworkToBank());
 	}
@@ -35,7 +35,7 @@ public class DesligarATMTest {
 		atm.switchOn();
 		assertNotNull(atm.getNetworkToBank());
 		atm.deposit(new Card(123), 1, 100);
-		assertTrue(atm.isBusy());
+		assertTrue(atm.isSessaoAtiva());
 		atm.switchOff();
 		assertNotNull(atm.getNetworkToBank());
 	}

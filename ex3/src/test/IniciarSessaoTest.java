@@ -29,7 +29,9 @@ public class IniciarSessaoTest {
 	public void testLogin() {
 		assertFalse(atm.isUsuarioLogado());
 		atm.insereCartao(cartaoOK);
+		assertEquals("PIN_MODE", atm.getCustomerConsoleStatus());
 		atm.inserePin(pinOk);
+		assertEquals("MENU_MODE", atm.getCustomerConsoleStatus());
 		assertTrue(atm.isUsuarioLogado());
 		assertTrue(atm.isSessaoAtiva());
 	}
@@ -62,6 +64,7 @@ public class IniciarSessaoTest {
 	public void testLoginCancelado() {
 		assertFalse(atm.isUsuarioLogado());
 		atm.insereCartao(cartaoOK);
+		assertEquals("PIN_MODE", atm.getCustomerConsoleStatus());
 		atm.cancelaOperacao();
 		assertFalse(atm.isUsuarioLogado());
 		assertFalse(atm.isSessaoAtiva());
@@ -72,9 +75,11 @@ public class IniciarSessaoTest {
 	public void testPinIncorreto() {
 		assertFalse(atm.isUsuarioLogado());
 		atm.insereCartao(cartaoOK);
+		assertEquals("PIN_MODE", atm.getCustomerConsoleStatus());
 		atm.inserePin(pinErrado);
 		assertFalse(atm.isUsuarioLogado());
 		assertTrue(atm.podeEjetarCartao());
+		assertEquals("PIN_MODE", atm.getCustomerConsoleStatus());
 		atm.inserePin(pinOk);
 		assertTrue(atm.isUsuarioLogado());
 		assertFalse(atm.isSessaoAtiva());

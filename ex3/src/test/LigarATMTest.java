@@ -21,6 +21,7 @@ public class LigarATMTest {
 	@Test
 	public void testSwitchOn() {
 		assertNull(atm.getNetworkToBank());
+		assertEquals("AMOUNT_MODE", atm.getCustomerConsoleStatus());
 		atm.setInitialCash(new Money(200));
 		atm.switchOn();
 		assertNotNull(atm.getNetworkToBank());
@@ -29,6 +30,7 @@ public class LigarATMTest {
 	@Test
 	public void testSwitchOnNoCash() {
 		assertNull(atm.getNetworkToBank());
+		assertEquals("AMOUNT_MODE", atm.getCustomerConsoleStatus());
 		atm.switchOn();
 		assertNull(atm.getNetworkToBank());
 	}
